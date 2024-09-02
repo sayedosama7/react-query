@@ -28,8 +28,17 @@ export default function BasicDemo() {
             label: 'Products',
             icon: 'pi pi-envelope',
             command: () => navigate('/products')
-
-        }
+        },
+        {
+            label: 'add user',
+            icon: 'pi pi-plus',
+            command: () => navigate('/add-user')
+        },
+        {
+            label: 'queries ',
+            icon: 'pi pi-box',
+            command: () => navigate('/queries')
+        },
     ];
 
     return (
