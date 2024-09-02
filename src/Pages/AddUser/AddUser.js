@@ -107,7 +107,7 @@ const AddUser = () => {
                     {isError && <h2 className='text-danger'>Error: {error.message}</h2>}
                     {!isLoading && !isError && (
                         data?.data.map((user) => (
-                            <div key={user.id} className='col-lg-3 col-md-6 mb-4'>
+                            <div key={user.id} className='col-lg-4 col-md-6 mb-4'>
                                 <div className='p-3 border rounded h-100 bg-light'>
                                     {user.img && (
                                         <img className="img-fluid mb-2 h-50 rounded-4 w-100" src={user.img} alt="img" />
