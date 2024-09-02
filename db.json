@@ -3,27 +3,20 @@
     {
       "id": "1",
       "username": "sayed",
-      "email": "sayed@gmail.com"
-    },
-    {
-      "id": "2",
-      "username": "ali",
-      "email": "ali@gmail.com"
+      "email": "sayed@gmail.com",
+      "img": "blob:http://localhost:3000/8269ce4f-81b2-4514-bb85-d1853e3590b3"
     },
     {
       "id": "3",
       "username": "ahmed",
-      "email": "ahmed@gmail.com"
+      "email": "ahmed@gmail.com",
+      "img": "blob:http://localhost:3000/d3757d1b-d557-4740-87e4-aeadcb6c1609"
     },
     {
-      "id": "4",
-      "username": "waad",
-      "email": "waad@gmail.com"
-    },
-    {
-      "id": "5",
-      "username": "q",
-      "email": "q"
+      "id": "3",
+      "username": "ahmed",
+      "email": "ahmed@gmail.com",
+      "img": "blob:http://localhost:3000/d3757d1b-d557-4740-87e4-aeadcb6c1609"
     }
   ]
 }
