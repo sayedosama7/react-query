@@ -17,7 +17,7 @@ const AddUser = () => {
     const { mutate: updateUser } = useUpdateUser();
 
     const { isLoading, data, error, isError, isFetching } = useFetchUsers();
-    const imageInputRef = useRef(null); // مرجع الإدخال
+    const imageInputRef = useRef(null);
 
     const addUsers = () => {
         const maxId = data?.data.reduce((max, user) => Math.max(max, parseInt(user.id)), 0);
@@ -27,9 +27,9 @@ const AddUser = () => {
         add(user);
         setUsername('');
         setEmail('');
-        setImage(null); // إعادة تعيين الصورة
+        setImage(null);
         if (imageInputRef.current) {
-            imageInputRef.current.value = ''; // إعادة تعيين الإدخال
+            imageInputRef.current.value = '';
         }
     };
 
@@ -53,7 +53,7 @@ const AddUser = () => {
             setEmail('');
             setImage(null);
             if (imageInputRef.current) {
-                imageInputRef.current.value = ''; // إعادة تعيين الإدخال
+                imageInputRef.current.value = '';
             }
         }
     };
@@ -91,8 +91,9 @@ const AddUser = () => {
                                     type="file"
                                     className='ml-2'
                                     id="image"
+                                    onChange={handleImageChange}
                                     ref={imageInputRef}
-                                    onChange={handleImageChange} />
+                                />
                             </div>
                         </div>
 
@@ -103,39 +104,45 @@ const AddUser = () => {
                         )}
                     </div>
                     <h1>Users</h1>
-                    {isLoading || isFetching && <h2 className='pt-4 p-2'><Loading /></h2>}
-                    {isError && <h2 className='text-danger'>Error: {error.message}</h2>}
-                    {!isLoading && !isError && (
-                        data?.data.map((user) => (
-                            <div key={user.id} className='col-lg-4 col-md-6 mb-4'>
-                                <div className='p-3 border rounded h-100 bg-light'>
-                                    {user.img && (
-                                        <img className="img-fluid mb-2 h-50 rounded-4 w-100" src={user.img} alt="img" />
-                                    )}
-                                    <p>
-                                        <span>ID : </span>
-                                        {user.id}
-                                    </p>
-                                    <p>
-                                        <span>Name : </span>
-                                        {user.username}
-                                    </p>
-                                    <p>
-                                        <span>Email : </span>
-                                        {user.email}
-                                    </p>
+                    {isLoading || isFetching ? (
+                        <h2 className='pt-4 p-2'><Loading /></h2>
+                    ) : isError ? (
+                        <h2 className='text-danger'>Error: {error.message}</h2>
+                    ) : (
+                        data && data.data && data.data.length > 0 ? (
+                            data.data.map((user) => (
+                                <div key={user.id} className='col-lg-4 col-md-6 mb-4'>
+                                    <div className='p-3 border rounded h-100 bg-light'>
+                                        {user.img && (
+                                            <img className="img-fluid mb-2 h-50 rounded-4 w-100" src={user.img} alt="img" />
+                                        )}
+                                        <p>
+                                            <span>ID : </span>
+                                            {user.id}
+                                        </p>
+                                        <p>
+                                            <span>Name : </span>
+                                            {user.username}
+                                        </p>
+                                        <p>
+                                            <span>Email : </span>
+                                            {user.email}
+                                        </p>
 
-                                    <div>
-                                        <button onClick={() => handleDelete(user.id)} className="btn btn-danger mt-2">
-                                            <i className="fas fa-trash-can fa-lg"></i>
-                                        </button>
-                                        <button onClick={() => handleEdit(user)} className="btn btn-primary mt-2 ml-2">
-                                            <i className="fas fa-edit"></i>
-                                        </button>
+                                        <div>
+                                            <button onClick={() => handleDelete(user.id)} className="btn btn-danger mt-2">
+                                                <i className="fas fa-trash-can fa-lg"></i>
+                                            </button>
+                                            <button onClick={() => handleEdit(user)} className="btn btn-primary mt-2 ml-2">
+                                                <i className="fas fa-edit"></i>
+                                            </button>
+                                        </div>
                                     </div>
                                 </div>
-                            </div>
-                        ))
+                            ))
+                        ) : (
+                            <h2>No users found.</h2>
+                        )
                     )}
                 </div>
             </div>

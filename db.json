@@ -4,19 +4,13 @@
       "id": "1",
       "username": "sayed",
       "email": "sayed@gmail.com",
-      "img": "blob:https://react-query-flame.vercel.app/ef36cf3e-706b-47ad-83ce-c60ffb41903f"
+      "img": ""
     },
     {
-      "id": "3",
-      "username": "ahmed",
-      "email": "ahmed@gmail.com",
-      "img": "blob:https://react-query-flame.vercel.app/2d542445-7073-4361-8d26-a27117dc7015"
-    },
-    {
-      "id": "3",
-      "username": "ahmed",
-      "email": "ahmed@gmail.com",
-      "img": "blob:http://localhost:3000/d3757d1b-d557-4740-87e4-aeadcb6c1609"
+      "id": "2",
+      "username": "admin",
+      "email": "sss",
+      "img": ""
     }
   ]
 }
